@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Equalizer APO Remote | 15-Band Studio</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#06080e">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top App Bar -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <span class="icon-waves"></span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <h1>APO REMOTE</h1>
+            <span class="badge-fps">120 FPS</span>
+          </div>
+          <span id="device-label" class="device-label">Conectando...</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="/download/app.apk" class="btn-download-apk" title="Descargar APK Nativa para Celular">
+          <span>📥 APK</span>
+        </a>
+        <div id="status-badge" class="status-badge connecting">
+          <span class="status-dot"></span>
+          <span id="status-text">Buscando PC...</span>
+        </div>
+        <button id="btn-bypass" class="btn-bypass" title="Bypass Total">
+          <span class="bypass-icon">⏻</span>
+          <span class="bypass-label">BYPASS</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Screens Container -->
+    <main class="screens-container">
+      <!-- PANTALLA 1: MASTER EQ -->
+      <section id="tab-eq" class="tab-screen active">
+        <!-- 120 FPS RTA Spectrum Card -->
+        <div class="visualizer-card">
+          <div class="card-header">
+            <span class="card-title">ESPECTRO DE AUDIO EN VIVO (PC)</span>
+            <div class="visualizer-meta">
+              <span id="fps-counter" class="meta-tag neon-green">120 FPS</span>
+              <span id="level-indicator" class="meta-tag neon-cyan">0.00 RMS</span>
+            </div>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="rta-canvas"></canvas>
+            <div class="freq-axis">
+              <span>25Hz</span>
+              <span>100Hz</span>
+              <span>400Hz</span>
+              <span>1.6kHz</span>
+              <span>6.3kHz</span>
+              <span>16kHz</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preamp Bar -->
+        <div class="preamp-bar">
+          <div class="preamp-title-group">
+            <span class="preamp-label">PREAMPLIFICACIÓN MASTER</span>
+            <span id="preamp-val" class="preamp-value">0.0 dB</span>
+          </div>
+          <div class="preamp-slider-container">
+            <span class="scale-label">-20dB</span>
+            <input type="range" id="preamp-slider" min="-20" max="20" step="0.5" value="0">
+            <span class="scale-label">+20dB</span>
+            <button id="preamp-reset" class="btn-micro" title="Reset a 0dB">0dB</button>
+          </div>
+        </div>
+
+        <!-- 15-Band Equalizer Section -->
+        <div class="eq-section">
+          <div class="eq-header">
+            <div class="eq-title-group">
+              <span class="eq-title">CONSOLA DE 15 BANDAS (ISO)</span>
+              <span class="eq-subtitle">Arrastra los faders | Doble clic para 0 dB</span>
+            </div>
+            <button id="btn-flat" class="btn-reset-eq">Aplanar a 0 dB</button>
+          </div>
+          <div class="faders-rack-scroll">
+            <div class="faders-rack" id="faders-rack">
+              <!-- Dynamically generated 15 faders -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANTALLA 2: NOISE GATE (MICRÓFONO) -->
+      <section id="tab-gate" class="tab-screen">
+        <div class="gate-card full-view">
+          <div class="gate-header">
+            <div class="gate-title-group">
+              <span class="gate-title">PUERTA DE RUIDO EN TIEMPO REAL (120 FPS)</span>
+              <div id="gate-indicator" class="gate-indicator-pill off">
+                <span class="gate-led"></span>
+                <span id="gate-state-text">DESACTIVADA</span>
+              </div>
+            </div>
+            <button id="btn-gate-toggle" class="btn-gate-toggle">
+              <span class="toggle-switch"></span>
+              <span id="gate-toggle-label">ACTIVAR</span>
+            </button>
+          </div>
+
+          <div class="gate-body">
+            <div class="gate-control-card">
+              <div class="meter-info-row">
+                <span class="meter-title">Nivel de Micrófono en Vivo:</span>
+                <span id="mic-db-readout" class="meter-db-text">-80 dB</span>
+              </div>
+              <div class="meter-bar-track large">
+                <div id="mic-level-fill" class="meter-bar-fill"></div>
+                <div id="gate-thresh-marker" class="meter-thresh-marker"></div>
+              </div>
+            </div>
+
+            <div class="gate-control-card">
+              <div class="gate-sub-label-row">
+                <span class="meter-title">Umbral de Activación (Threshold):</span>
+                <span id="gate-thresh-val" class="gate-thresh-val">-42.0 dB</span>
+              </div>
+              <input type="range" id="gate-thresh-slider" min="-60" max="-10" step="1" value="-42">
+              <span class="gate-hint">Las señales por debajo del umbral serán muteadas automáticamente a 120 FPS.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANTALLA 3: PRESETS -->
+      <section id="tab-presets" class="tab-screen">
+        <div class="presets-view-card">
+          <div class="section-sub-title">BIBLIOTECA DE GÉNEROS Y ESTILOS DE AUDIO</div>
+          <div class="presets-grid" id="presets-container">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- PANTALLA 4: CONEXIÓN & ESTADO -->
+      <section id="tab-conn" class="tab-screen">
+        <div class="conn-card">
+          <h2 class="conn-title">CENTRO DE ENLACE & CONEXIÓN</h2>
+          <div class="conn-info-list">
+            <div class="conn-row">
+              <span class="conn-lbl">Estado de Enlace:</span>
+              <span id="conn-status-val" class="conn-val neon-green">En línea</span>
+            </div>
+            <div class="conn-row">
+              <span class="conn-lbl">Dispositivo de Audio:</span>
+              <span id="conn-device-val" class="conn-val">Altavoces</span>
+            </div>
+            <div class="conn-row">
+              <span class="conn-lbl">Latencia WebSocket:</span>
+              <span id="conn-lat-val" class="conn-val neon-cyan">&lt; 1 ms</span>
+            </div>
+          </div>
+          <div class="apk-download-box">
+            <h3>¿Prefieres la App de Celular?</h3>
+            <p>Descarga la aplicación nativa en Flutter compilada con aceleración a 120 FPS y modo horizontal automático.</p>
+            <a href="/download/app.apk" class="btn-primary-apk">Descargar APK Oficial</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-tab="tab-eq">
+        <span class="nav-icon">🎚️</span>
+        <span class="nav-text">Master EQ</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-gate">
+        <span class="nav-icon">🎙️</span>
+        <span class="nav-text">Noise Gate</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-presets">
+        <span class="nav-icon">🎧</span>
+        <span class="nav-text">Presets</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-conn">
+        <span class="nav-icon">🌐</span>
+        <span class="nav-text">Conexión</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

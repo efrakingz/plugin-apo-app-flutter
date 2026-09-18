@@ -1,0 +1,51 @@
+# Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.env
+venv/
+.venv/
+env/
+
+# Flutter / Dart
+apo_flutter/build/
+apo_flutter/.dart_tool/
+apo_flutter/.flutter-plugins
+apo_flutter/.flutter-plugins-dependencies
+apo_flutter/.packages
+apo_flutter/.pub-cache/
+apo_flutter/.pub/
+
+# Android build outputs and caches
+apo_flutter/android/.gradle/
+apo_flutter/android/captures/
+apo_flutter/android/local.properties
+apo_flutter/android/**/GeneratedPluginRegistrant.java
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# iOS / macOS build outputs
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/DerivedData/
+**/macos/Flutter/ephemeral/
+**/ios/.symlinks/
+
+# Windows / Linux ephemeral
+**/windows/flutter/ephemeral/
+**/linux/flutter/ephemeral/
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
