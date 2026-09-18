@@ -96,6 +96,31 @@ El proyecto incluye un script automatizado para PowerShell que instala todas las
 
 ---
 
+## 💖 Apoya el Proyecto (Donaciones y Aportes)
+
+Si este proyecto te ha sido de utilidad para controlar tu audio o te gusta la integración visual en tiempo real, puedes apoyar su desarrollo y mantenimiento continuo con un aporte:
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/efrakingz)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/efrakingz)
+[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/efrakingz)
+
+> *Nota: También puedes apoyar dejando una estrella ⭐ en este repositorio o compartiéndolo en comunidades de audio y tecnología.*
+
+---
+
+## 🤝 Cómo Colaborar
+
+¡Las contribuciones son bienvenidas!
+1. Haz un **Fork** del proyecto.
+2. Crea tu rama de características (`git checkout -b feature/NuevaFuncion`).
+3. Realiza tus commits (`git commit -m 'Añadir nueva función'`).
+4. Haz push a la rama (`git push origin feature/NuevaFuncion`).
+5. Abre un **Pull Request**.
+
+Si encuentras algún problema o tienes sugerencias de nuevas características, abre un [Issue](https://github.com/efrakingz/plugin-apo-app-flutter/issues).
+
+---
+
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.

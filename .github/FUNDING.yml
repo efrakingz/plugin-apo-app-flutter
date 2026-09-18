@@ -1,0 +1,7 @@
+# GitHub Funding Configuration
+# Muestra el botón "Sponsor" con el icono de corazón en la cabecera de tu repositorio de GitHub
+
+# github: [efrakingz] # Descomenta si activas GitHub Sponsors en https://github.com/sponsors
+# ko_fi: tu_usuario_kofi
+# buy_me_a_coffee: tu_usuario_bmac
+# custom: ['https://paypal.me/tu_usuario', 'https://link.mercadopago.com/...']
