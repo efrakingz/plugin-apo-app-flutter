@@ -102,7 +102,7 @@ Si este proyecto te ha sido de utilidad para controlar tu audio o te gusta la in
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/efrakingz)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/efrakingz)
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/efrakingz)
+[![PayPal](https://img.shields.io/badge/PayPal-Donar-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?business=efrakingz131@gmail.com&currency_code=USD)
 
 > *Nota: También puedes apoyar dejando una estrella ⭐ en este repositorio o compartiéndolo en comunidades de audio y tecnología.*
 
